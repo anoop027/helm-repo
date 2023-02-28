@@ -1,0 +1,23 @@
+name: my-client-dep1
+chartversion: 1.16.0
+  
+labels:
+  app: client
+
+replicaCount: 1
+
+Podname: clientpod1
+
+image:
+  repository: 898070453937.dkr.ecr.us-east-1.amazonaws.com/devops_repo
+  tag: "client"
+  pullPolicy: IfNotPresent
+
+containerPort: 3000
+
+Service:
+  name: my-client-service
+  type: NodePort
+  port: 3000
+  targetPort: 3000
+  nodePort: 32000
